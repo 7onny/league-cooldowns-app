@@ -1,0 +1,30 @@
+name: Windows CI
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Windows build and tests
+    runs-on: windows-2022
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build League Cooldowns
+        shell: pwsh
+        run: ./build.ps1
+      - name: Test parser and WPF rendering
+        shell: pwsh
+        run: ./test.ps1
