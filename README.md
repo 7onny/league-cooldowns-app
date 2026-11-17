@@ -26,4 +26,6 @@ League Wiki contributors provide the ability data. Refer to the source site's li
 
 Run ./build.ps1 in PowerShell. It uses the .NET Framework C# compiler installed with Windows and produces dist/LeagueCooldowns.exe, with no NuGet dependencies.
 
-Run ./test.ps1 for the downloaded sample pages, Ahri value assertions, and a WPF render check. The fixtures were fetched on 15 November 2026 and are retained locally for reproducible checks.
+Run ./test.ps1 for Ahri value assertions and a WPF render check. The Ahri fixture was fetched from League Wiki on 15 November 2026 and is included for reproducible checks. Additional locally retained sample pages are also parsed when present.
+
+GitHub Actions runs the build and checks on Windows for pull requests and pushes to master. Dependabot checks GitHub Actions dependencies monthly.

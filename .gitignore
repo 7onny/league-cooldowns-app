@@ -1,4 +1,5 @@
 build/
 dist/
-tests/fixtures/
+tests/fixtures/*
+!tests/fixtures/Ahri.html
 *.zip
